@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>ZombieRiot_Sharp</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<Reference Include="CounterStrikeSharp.API">
+		<HintPath>api/CounterStrikeSharp.API.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+	
+</Project>
