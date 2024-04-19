@@ -1,13 +1,15 @@
-﻿namespace ZombieRiot-Sharp.Helpers
+﻿using System.Collections.Generic;
+
+namespace ZombieRiot_Sharp.Helpers
 {
     public static class DictionaryKey
     {
-        public static T KeyByValue<T, W>(this Dictionary<T, W> dict, W val)
+        public static TKey KeyByValue<TKey, TValue>(this Dictionary<TKey, TValue> dict, TValue val) where TKey : notnull
         {
-            T key = default;
-            foreach (KeyValuePair<T, W> pair in dict)
+            TKey key = default!;
+            foreach (KeyValuePair<TKey, TValue> pair in dict)
             {
-                if (EqualityComparer<W>.Default.Equals(pair.Value, val))
+                if (EqualityComparer<TValue>.Default.Equals(pair.Value, val))
                 {
                     key = pair.Key;
                     break;

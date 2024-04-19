@@ -1,4 +1,4 @@
-﻿namespace ZombieRiot-Sharp.Helpers
+﻿namespace ZombieRiot_Sharp.Helpers
 {
     public static class VectorExtentions
     {
