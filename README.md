@@ -14,6 +14,10 @@ Rebase from GitHub (CS:GO Version): https://github.com/Oz-Lin/ZombieSharp
 - [CS2Fixes](https://github.com/Source2ZE/CS2Fixes) plugin for movement unlocker (knockback), weapon commands, infinite reserve ammo settings (optional), enforcing navigation mesh for bots.
 - [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json/releases) 
 - [Dual Mounting](https://github.com/Source2ZE/MultiAddonManager) for custom contents (especially zombie player models).
+
+### Other recommended plugins
+- [Custom Default Ammo](https://github.com/1Mack/CS2-CustomDefaultAmmo) overriding default ammo configs.
+- [HNS Freeze](https://github.com/lhunter3/HNS-Freeze) turn a decoy into freeze grenade.
  
 To be migrated from CS:GO SourceMod 1.11 to CS2 CounterStrikeSharp:
 - ~~Completely new syntax (Supported SM 1.11+)~~ C# .NET 8.0 standard
