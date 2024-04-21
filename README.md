@@ -18,6 +18,13 @@ Rebase from GitHub (CS:GO Version): https://github.com/Oz-Lin/ZombieSharp
 ### Other recommended plugins
 - [Custom Default Ammo](https://github.com/1Mack/CS2-CustomDefaultAmmo) overriding default ammo configs.
 - [HNS Freeze](https://github.com/lhunter3/HNS-Freeze) turn a decoy into freeze grenade.
+
+### Recommended Server-side Convars
+```
+bot_quota_mode "normal" 
+bot_difficulty 3 //avoid camping zombies
+mp_disconnect_kills_players 1 //avoid potential server crashes
+```
  
 To be migrated from CS:GO SourceMod 1.11 to CS2 CounterStrikeSharp:
 - ~~Completely new syntax (Supported SM 1.11+)~~ C# .NET 8.0 standard
