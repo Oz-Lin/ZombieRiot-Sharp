@@ -3,8 +3,6 @@ using System;
 
 namespace ZombieRiot_Sharp;
 
-using static Zriot.Command;
-using static Zriot.Global;
 
 
 [MinimumApiVersion(200)]

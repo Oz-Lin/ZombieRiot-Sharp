@@ -1,6 +1,6 @@
-namespace ZombieRiot_Sharp.Zriot;
+namespace ZombieRiot_Sharp;
 
-public partial class Command
+public partial class ZombieRiotSharp
 {
     public void CreateCommands()
     {

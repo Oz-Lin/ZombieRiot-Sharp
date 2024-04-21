@@ -11,10 +11,10 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 //using static ZombieRiot_Sharp.Zriot.Cvars;
 
-namespace ZombieRiot_Sharp.Zriot;
+namespace ZombieRiot_Sharp;
 
 
-public partial class Cvars
+public partial class ZombieRiotSharp
 {
     public FakeConVar<bool> CVAR_ENABLE;
     public FakeConVar<bool> CVAR_AMBIENCE;
