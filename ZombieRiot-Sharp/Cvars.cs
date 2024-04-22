@@ -62,7 +62,7 @@ public partial class ZombieRiotSharp
     {
         CVAR_ENABLE = new("zriot_enable", "Enable ZombieRiot gameplay (false: Disable)", true, ConVarFlags.FCVAR_NONE);
         CVAR_AMBIENCE = new("zriot_ambience", "Enable creepy ambience to be played throughout the game (false: Disable)", true, ConVarFlags.FCVAR_NONE);
-        CVAR_AMBIENCE_FILE = new("zriot_ambience_file", "Path to ambient sound file that will be played throughout the game, when zriot_ambience is 1", "ambient/zr/zr_ambience.mp3");
+        CVAR_AMBIENCE_FILE = new("zriot_ambience_file", "Path to ambient sound file that will be played throughout the game, when zriot_ambience is 1", "ambient/zr/zr_ambience.mp3", ConVarFlags.FCVAR_NONE);
         CVAR_AMBIENCE_LENGTH = new("zriot_ambience_length", "The length, in seconds, of the ambient sound file", 60.0f, ConVarFlags.FCVAR_NONE);
         CVAR_AMBIENCE_VOLUME = new("zriot_ambience_volume", "Volume of ambient sounds when zriot_ambience is 1 (0.0: Unhearable,  1.0: Max volume)", 0.6f, ConVarFlags.FCVAR_NONE, new RangeValidator<float>(0.0f, 1.0f));
         CVAR_HOSTNAME_UPDATE = new("zriot_hostname_update", "Updates the server's hostname to display the current day server is playing (false: Disable)", true, ConVarFlags.FCVAR_NONE);
@@ -70,24 +70,24 @@ public partial class ZombieRiotSharp
         CVAR_ZVISION_ALLOW_DISABLE = new("zriot_zvision_allow_disable", "Allow users to disable ZVision with their nightvision key (false: Disable)", false, ConVarFlags.FCVAR_NONE);
         CVAR_REGRESSION = new("zriot_regression", "If the zombies win the round, the game will regress one day (false: Disable)", true, ConVarFlags.FCVAR_NONE);
         CVAR_NOBLOCK = new("zriot_noblock", "Prevents zombies from getting stuck in each other (false: Disable)", true, ConVarFlags.FCVAR_NONE);
-        CVAR_FREEZE = new("zriot_freeze", "Time, in seconds, to freeze zombies at round start to allow humans to get set up (0: Disable)", 10, ConVarFlags.FCVAR_NONE);
+        CVAR_FREEZE = new("zriot_freeze", "Time, in seconds, to freeze zombies at round start to allow humans to get set up (0: Disable)", 10, ConVarFlags.FCVAR_NONE, new RangeValidator<int>(0, 99999));
         CVAR_BOTQUOTA_SILENT = new("zriot_botquota_silent", "Blocks join/leave text for bots (false: Disable)", true, ConVarFlags.FCVAR_NONE);
-        CVAR_FIRST_RESPAWN = new("zriot_first_respawn","Amount of time to wait before spawning a player into the game for the first time (0: Disable)", 10, ConVarFlags.FCVAR_NONE);
-        CVAR_RESPAWN = new("zriot_respawn", "Amount of time each human has to wait before they will respawn into the game (0: Disable)", 30, ConVarFlags.FCVAR_NONE);
-        CVAR_ZOMBIETEAM = new("zriot_zombieteam", "Which team zombie's will be on (t: Terrorist ct: Counter-Terrorist)", "t");
-        CVAR_ZOMBIEMAX = new("zriot_zombiemax", "The max amount of zombies spawned at one time", 12, ConVarFlags.FCVAR_NONE);
+        CVAR_FIRST_RESPAWN = new("zriot_first_respawn","Amount of time to wait before spawning a player into the game for the first time (0: Disable)", 10, ConVarFlags.FCVAR_NONE, new RangeValidator<int>(0, 99999));
+        CVAR_RESPAWN = new("zriot_respawn", "Amount of time each human has to wait before they will respawn into the game (0: Disable)", 30, ConVarFlags.FCVAR_NONE, new RangeValidator<int>(0, 99999));
+        CVAR_ZOMBIETEAM = new("zriot_zombieteam", "Which team zombie's will be on (t: Terrorist ct: Counter-Terrorist)", "t", ConVarFlags.FCVAR_NONE);
+        CVAR_ZOMBIEMAX = new("zriot_zombiemax", "The max amount of zombies spawned at one time", 12, ConVarFlags.FCVAR_NONE, new RangeValidator<int>(0, 1024));
         CVAR_HUD = new("zriot_hud", "Enable persistent display of the HUD which displays day, zombies left, and humans left (false: Disable)", true, ConVarFlags.FCVAR_NONE);
         CVAR_TARGETING = new("zriot_targeting", "Enables a system that tracks damage done to each zombie, and shows you each one's current health (false: Disable)", true, ConVarFlags.FCVAR_NONE);
         CVAR_ROUNDFADE = new("zriot_roundfade", "Player's screens fade blue if humans win, red if zombies in, and black in any other case (false: Disable)", false, ConVarFlags.FCVAR_NONE);
         CVAR_OVERLAYS = new("zriot_overlays", "Enable use of round end overlays to show the winner (false: Disable)", true, ConVarFlags.FCVAR_NONE);
-        CVAR_OVERLAYS_ZOMBIE = new("zriot_overlays_zombie", "overlays/zr/zombies_win", "Path to overlay shown when Zombies win, when zriot_overlays is 1");
-        CVAR_OVERLAYS_HUMAN = new("zriot_overlays_human", "overlays/zr/humans_win", "Path to overlay shown when Humans win, when zriot_overlays is 1");
-        CVAR_RAGDOLL_REMOVE = new("zriot_ragdoll_remove", "The time, in seconds, before the ragdoll of dead zombies will be deleted (0: Disable)", 20, ConVarFlags.FCVAR_NONE);
+        CVAR_OVERLAYS_ZOMBIE = new("zriot_overlays_zombie", "Path to overlay shown when Zombies win, when zriot_overlays is true", "overlays/zr/zombies_win", ConVarFlags.FCVAR_NONE);
+        CVAR_OVERLAYS_HUMAN = new("zriot_overlays_human", "Path to overlay shown when Humans win, when zriot_overlays is true", "overlays/zr/humans_win", ConVarFlags.FCVAR_NONE);
+        CVAR_RAGDOLL_REMOVE = new("zriot_ragdoll_remove", "The time, in seconds, before the ragdoll of dead zombies will be deleted (0: Disable)", 20, ConVarFlags.FCVAR_NONE, new RangeValidator<int>(0, 99999));
         CVAR_NAPALM = new("zriot_napalm", "Turns grenades into napalm grenades that light zombies on fire (false: Disable)", true, ConVarFlags.FCVAR_NONE);
-        CVAR_NAPALM_TIME = new("zriot_napalm_time", "How long the zombie burns when zr_napalm is true", 20, ConVarFlags.FCVAR_NONE);
+        CVAR_NAPALM_TIME = new("zriot_napalm_time", "How long the zombie burns when zr_napalm is true", 20, ConVarFlags.FCVAR_NONE, new RangeValidator<int>(0, 99999));
         CVAR_DARK = new("zriot_dark", "Darkens the map (false: Disable)", false, ConVarFlags.FCVAR_NONE);
-        CVAR_DARK_LEVEL = new("zriot_dark_level", "The darkness of the map,  a being the darkest,  z being extremely bright when zriot_dark is 1 (n: Default)", "n");
-        CVAR_DARK_SKY = new("zriot_dark_sky", "sky_borealis01", "The sky the map will have when zriot_dark is 1");
+        CVAR_DARK_LEVEL = new("zriot_dark_level", "The darkness of the map,  a being the darkest,  z being extremely bright when zriot_dark is 1 (n: Default)", "n", ConVarFlags.FCVAR_NONE);
+        CVAR_DARK_SKY = new("zriot_dark_sky", "The sky the map will have when zriot_dark is 1", "sky_borealis01", ConVarFlags.FCVAR_NONE);
         CVAR_ZMARKET_BUYZONE = new("zriot_zmarket_buyzone", "Must be in buyzone to access !zmarket, if Market is installed (false: Can be used anywhere)", false, ConVarFlags.FCVAR_NONE);
         CVAR_CASHFILL = new("zriot_cashfill", "Enable the mod to set the players cash to zriot_cashamount (false: Disabled)", true, ConVarFlags.FCVAR_NONE);
         CVAR_CASHAMOUNT = new("zriot_cashamount", "How much money players will have when they spawn when zriot_cashfill is 1", 12000, ConVarFlags.FCVAR_NONE, new RangeValidator<int>(0, 99999));
@@ -158,28 +158,52 @@ public partial class ZombieRiotSharp
         execCfg.WriteLine("zriot_ambience_volume \"0.6\"");
         execCfg.WriteLine("zriot_hostname_update \"true\"");
         execCfg.WriteLine("zriot_zvision_redisplay \"0.2\"");
+        execCfg.WriteLine("zriot_zvision_allow_disable \"false\"");
+        execCfg.WriteLine("zriot_regression \"true\"");
+        execCfg.WriteLine("zriot_noblock \"true\"");
 
-        execCfg.WriteLine("zs_respawn_timer \"5.0\"");
-        execCfg.WriteLine("zs_respawn_join_late \"1\"");
-        execCfg.WriteLine("zs_respawn_team \"0\"");
-        execCfg.WriteLine("zs_respawn_protect \"0\"");
-        execCfg.WriteLine("zs_respawn_protect_time \"5.0\"");
-        execCfg.WriteLine("zs_respawn_protect_speed \"600.0\"");
+        execCfg.WriteLine("zriot_freeze \"10\"");
+        execCfg.WriteLine("zriot_botquota_silent \"true\"");
+        execCfg.WriteLine("zriot_first_respawn \"10\"");
+        execCfg.WriteLine("zriot_respawn \"30\"");
+        execCfg.WriteLine("zriot_zombieteam \"zombie_default\"");
+        execCfg.WriteLine("zriot_zombiemax \"12\"");
+        execCfg.WriteLine("zriot_hud \"true\"");
+        execCfg.WriteLine("zriot_targeting \"true\"");
+        execCfg.WriteLine("zriot_roundfade \"true\"");
+        execCfg.WriteLine("zriot_overlays \"true\"");
 
-        execCfg.WriteLine("zs_classes_human_default \"human_default\"");
-        execCfg.WriteLine("zs_classes_zombie_default \"zombie_default\"");
+        execCfg.WriteLine("zriot_overlays_zombie \"overlays/zr/zombies_win\"");
+        execCfg.WriteLine("zriot_overlays_human \"overlays/zr/humans_win\"");
+        execCfg.WriteLine("zriot_ragdoll_remove \"20\"");
+        execCfg.WriteLine("zriot_napalm \"true\"");
+        execCfg.WriteLine("zriot_napalm_time \"20\"");
+        execCfg.WriteLine("zriot_dark \"false\"");
+        execCfg.WriteLine("zriot_dark_level \"n\"");
+        execCfg.WriteLine("zriot_dark_sky \"sky_borealis01\"");
+        execCfg.WriteLine("zriot_zmarket_buyzone \"false\"");
+        execCfg.WriteLine("zriot_cashfill \"true\"");
+
+        execCfg.WriteLine("zriot_cashamount \"12000\"");
+        execCfg.WriteLine("zriot_triggermapvote \"true\"");
+        execCfg.WriteLine("zriot_mapvotedayleft \"2\"");
+        execCfg.WriteLine("zri spawn \"30\"");
+        execCfg.WriteLine("zri bieteam \"zombie_default\"");
         execCfg.WriteLine("zs_classes_mother_default \"motherzombie\"");
-
         execCfg.WriteLine("zs_repeatkiller_threshold \"0.0\"");
         execCfg.WriteLine("zs_topdefender_enable \"1\"");
+        execCfg.WriteLine("zs_timeout_winner \"3\"");
+        execCfg.WriteLine("zs_timeout_winner \"3\"");
+
         execCfg.WriteLine("zs_timeout_winner \"3\"");
 
         execCfg.Close();
     }
 
+    
     public void OnHumanRespawnChanged(Handle cvar, string oldvalue, string newvalue)
     {
-        g_bAllowHumanRespawn = GetConVarBool(gCvars.CVAR_ALLOWHUMAN_RESPAWN);
+        g_bAllowHumanRespawn = GetConVarBool(CVAR_ALLOWHUMAN_RESPAWN);
     }
 
 
@@ -203,7 +227,7 @@ public partial class ZombieRiotSharp
         UnhookConVarChange(FindConVar("mp_autoteambalance"), AutoTeamBalanceHook);
         UnhookConVarChange(FindConVar("mp_limitteams"), LimitTeamsHook);
 
-        UnhookConVarChange(gCvars.CVAR_ZOMBIETEAM, ZombieTeamHook);
+        UnhookConVarChange(CVAR_ZOMBIETEAM, ZombieTeamHook);
 
         UnhookConVarChange(FindConVar("mp_restartgame"), RestartGameHook);
     }
@@ -257,4 +281,5 @@ public partial class ZombieRiotSharp
 
         ResetZombies(true);
     }
+    
 }
